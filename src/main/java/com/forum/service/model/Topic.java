@@ -1,5 +1,7 @@
 package com.forum.service.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.forum.service.util.LocalDateTimeSerializer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,6 +17,7 @@ public class Topic {
     private Integer id;
     private String title;
     private String description;
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
     private LocalDateTime shareDate;
     private Integer viewCount;
     private Integer commentsCount;
